@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>翻譯韓文</title>
+</head>
+<body>
+<h1>歡迎使用翻譯韓文功能</h1>
+<p>輸入一個訊息，然後按下翻譯按鈕：</p>
+<%= form_tag('/casual/translate', method: 'post') do %>
+  <%= text_field_tag 'message', nil, placeholder: '輸入訊息' %>
+  <%= submit_tag '翻譯' %>
+<% end %>
+
+<% if @translated_message.present? %>
+  <h2>翻譯結果</h2>
+  <p><%= @translated_message %></p>
+  <%= link_to '返回', casual_translate_path %>
+<% end %>
+</body>
+</html>
